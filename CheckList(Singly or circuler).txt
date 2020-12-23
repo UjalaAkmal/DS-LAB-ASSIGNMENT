@@ -1,0 +1,87 @@
+package printlist;
+
+//name:ahsan ali
+//RegNo#fa19-bse-059
+//Section:B
+
+class SinglyCircular 
+{
+    Node head;
+    Node tail;
+    int data;
+    class Node //first class node class
+    {
+        int data;//integer data
+        Node next;
+
+        public Node(int data)
+        {
+            this.data = data;
+            this.next = null;
+        }
+
+		public Object getNext() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+    }
+    public SinglyCircular()
+    {
+    	head=null;
+    	head=tail;
+    }
+    public void add(int d)
+    {
+    	Node n1=new Node(d);
+    	if(head==null)
+    	{
+    		head=n1;tail=n1;
+    		n1.next=head;
+    		tail.next=head;
+    	}
+    	else
+    	{
+    		tail.next=n1;
+    		tail=n1;
+    		tail.next=head;
+    	}
+    	data++;
+    }
+    public void convert()
+    {
+    	Node te;
+    	te=tail;
+    	te.next=null;
+    }
+   
+    public void checking(SinglyCircular list)
+    {
+        Node temp;
+        temp=tail;
+        
+        if(temp.getNext()==null)
+        {
+        	System.out.println("list is singly linked list");
+        }
+        else
+        {
+        	System.out.println("Circuler");
+        	convert();
+        }
+    }
+    
+	public static void main(String[] args)
+	{
+		 SinglyCircular list = new SinglyCircular ();//object of single circular class 
+	       list.add(1);
+	       list.add(12);
+	       list.add(2);
+
+//	       list.CircularInsert(list, 2);
+//	       list.CircularInsert(list, 3);
+//	       list.CircularInsert(list, 4);
+	       list.checking(list);
+
+	}
+
+}
